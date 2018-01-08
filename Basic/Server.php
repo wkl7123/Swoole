@@ -7,7 +7,7 @@
  */
 
 
-$serv = new swoole_server("127.0.0.1", 9502);
+$serv = new swoole_server("0.0.0.0", 9502); // 表示监听所有ip地址
 
 $serv->set(array(
     'worker_num' => 4,    //worker process num
@@ -25,7 +25,7 @@ $serv->on('connect', function ($serv, $fd) {
 $serv->on('receive', function ($serv, $fd, $from_id, $data) {
 
     echo 'length=:'.strlen($data)."work_id={$serv->worker_pid}\n";
-//    $serv->send($fd, $data);
+    $serv->send($fd, $data);
 });
 
 
