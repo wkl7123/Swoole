@@ -32,5 +32,5 @@ $serv->on('receive', function ($serv, $fd, $from_id, $data) {
 $serv->on('close', function ($serv, $fd) {
     echo  "Client: close.\n";
 });
-// 启动9501端口的服务
+// 启动9502端口的服务
 $serv->start();
